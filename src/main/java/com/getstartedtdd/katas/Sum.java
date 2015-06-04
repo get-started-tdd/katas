@@ -5,6 +5,6 @@ package com.getstartedtdd.katas;
  */
 public class Sum {
     public static int sum(int[] numbers) {
-        return -1;
+        return 0;
     }
 }
