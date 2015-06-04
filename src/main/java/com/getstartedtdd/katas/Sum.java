@@ -5,10 +5,10 @@ package com.getstartedtdd.katas;
  */
 public class Sum {
     public static int sum(int[] numbers) {
-        int result = 0;
+        int total = 0;
         for (int number : numbers) {
-            result += number;
+            total += number;
         }
-        return result;
+        return total;
     }
 }
