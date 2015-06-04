@@ -7,8 +7,9 @@ public class Sum {
     public static int sum(int[] numbers) {
         int result = 0;
         int index = 0;
-        if (numbers.length > index) {
+        while (numbers.length > index) {
             result += numbers[index];
+            index++;
         }
         return result;
     }

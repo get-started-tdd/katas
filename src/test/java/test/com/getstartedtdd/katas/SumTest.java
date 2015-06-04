@@ -23,7 +23,6 @@ public class SumTest {
     }
 
     @Test
-    @Ignore
     public void sumAllTheNumbersInArray() throws Exception {
         assertThat(sum(new int[]{1, 2}), equalTo(3));
     }
