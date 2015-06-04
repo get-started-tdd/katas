@@ -1,6 +1,6 @@
 package test.com.getstartedtdd.katas;
 
-import org.junit.Ignore;
+import org.hamcrest.Matcher;
 import org.junit.Test;
 
 import static com.getstartedtdd.katas.Sum.sum;
@@ -11,20 +11,33 @@ import static org.junit.Assert.assertThat;
  * Created by L.x on 15-6-4.
  */
 public class SumTest {
+
     @Test
     public void sumWithEmptyArrayReturns0() throws Exception {
-        assertThat(sum(new int[0]), equalTo(0));
+        assertThat(sum(with(emptyArray())), returns(0));
     }
 
     @Test
     public void sumWithArrayContainingSingleNumberReturnsTheNumber() throws Exception {
-        assertThat(sum(new int[]{1}), equalTo(1));
-        assertThat(sum(new int[]{2}), equalTo(2));
+        assertThat(sum(with(1)), returns(1));
+        assertThat(sum(with(2)), returns(2));
     }
 
     @Test
     public void sumAllTheNumbersInArray() throws Exception {
-        assertThat(sum(new int[]{1, 2}), equalTo(3));
+        assertThat(sum(with(1, 2)), returns(3));
+    }
+
+    private int[] with(int... numbers) {
+        return numbers;
+    }
+
+    private int[] emptyArray() {
+        return new int[0];
+    }
+
+    private Matcher<Integer> returns(int result) {
+        return equalTo(result);
     }
 
 }
