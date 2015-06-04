@@ -18,6 +18,7 @@ public class SumTest {
     @Test
     public void sumWithArrayContainingSingleNumberReturnsTheNumber() throws Exception {
         assertThat(sum(new int[]{1}), equalTo(1));
+        assertThat(sum(new int[]{2}), equalTo(2));
     }
 
 }
