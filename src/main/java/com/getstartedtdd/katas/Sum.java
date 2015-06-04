@@ -6,8 +6,9 @@ package com.getstartedtdd.katas;
 public class Sum {
     public static int sum(int[] numbers) {
         int result = 0;
-        if (numbers.length > 0) {
-            result += numbers[0];
+        int index = 0;
+        if (numbers.length > index) {
+            result += numbers[index];
         }
         return result;
     }
