@@ -21,4 +21,9 @@ public class SumTest {
         assertThat(sum(new int[]{2}), equalTo(2));
     }
 
+    @Test
+    public void sumAllTheNumbersInArray() throws Exception {
+        assertThat(sum(new int[]{1, 2}), equalTo(3));
+    }
+
 }
