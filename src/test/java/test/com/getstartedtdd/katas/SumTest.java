@@ -1,5 +1,6 @@
 package test.com.getstartedtdd.katas;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static com.getstartedtdd.katas.Sum.sum;
@@ -22,6 +23,7 @@ public class SumTest {
     }
 
     @Test
+    @Ignore
     public void sumAllTheNumbersInArray() throws Exception {
         assertThat(sum(new int[]{1, 2}), equalTo(3));
     }
