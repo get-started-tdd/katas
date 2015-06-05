@@ -27,6 +27,7 @@ public class RomanNumberTest {
         assertThat(toRomanNumberString(2), is("II"));
         assertThat(toRomanNumberString(3), is("III"));
         assertThat(toRomanNumberString(4), is("IV"));
+        assertThat(toRomanNumberString(5), is("V"));
     }
 
     @Test

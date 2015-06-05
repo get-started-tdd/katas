@@ -24,10 +24,11 @@ public class RomanNumber {
     }
 
     private static enum Convention {
+        V(5),
         IV(4),
         I(1);
-        private int value;
 
+        private int value;
         Convention(int value) {
             this.value = value;
         }
