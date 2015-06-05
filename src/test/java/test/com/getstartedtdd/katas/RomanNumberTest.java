@@ -26,4 +26,11 @@ public class RomanNumberTest {
     public void convert_2_to_II() throws Exception {
         assertThat(new RomanNumber(2).toString(), is("II"));
     }
+
+    @Test
+    public void can_convert_number_to_roman_many_times() throws Exception {
+        RomanNumber number = new RomanNumber(2);
+        assertThat(number.toString(), is("II"));
+        assertThat(number.toString(), is("II"));
+    }
 }
