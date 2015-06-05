@@ -25,6 +25,7 @@ public class RomanNumberTest {
     public void convert_arabic_number_to_roman_number() throws Exception {
         assertThat(toRomanNumberString(1), is("I"));
         assertThat(toRomanNumberString(2), is("II"));
+        assertThat(toRomanNumberString(3), is("III"));
     }
 
     @Test
