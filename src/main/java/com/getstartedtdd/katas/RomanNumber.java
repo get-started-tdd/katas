@@ -14,7 +14,7 @@ public class RomanNumber {
     public String toString() {
         int number = this.number;
         String result = "";
-        if (number == 4) {
+        while (number >= 4) {
             result += "IV";
             number -= 4;
         }
