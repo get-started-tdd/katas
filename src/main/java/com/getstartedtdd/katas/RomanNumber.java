@@ -6,4 +6,9 @@ package com.getstartedtdd.katas;
 public class RomanNumber {
     public RomanNumber(int number) {
     }
+
+    @Override
+    public String toString() {
+        return "";
+    }
 }
