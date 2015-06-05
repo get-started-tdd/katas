@@ -15,4 +15,9 @@ public class RomanNumberTest {
     public void roman_number_does_not_have_0() throws Exception {
         assertThat(new RomanNumber(0).toString(), is(""));
     }
+
+    @Test
+    public void convert_1_to_I() throws Exception {
+        assertThat(new RomanNumber(1).toString(), is("I"));
+    }
 }
