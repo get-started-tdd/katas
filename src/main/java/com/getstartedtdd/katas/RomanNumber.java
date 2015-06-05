@@ -1,9 +1,5 @@
 package com.getstartedtdd.katas;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 /**
  * Created by L.x on 15-6-5.
  */
@@ -14,23 +10,28 @@ public class RomanNumber {
         this.number = number;
     }
 
-    private static final Map<Integer, String> conventions = new LinkedHashMap<Integer, String>() {{
-        put(4, "IV");
-        put(1, "I");
-    }};
-
     @Override
     public String toString() {
         int number = this.number;
         String result = "";
-
-        for (Integer value : conventions.keySet()) {
-            String roman = conventions.get(value);
-            while (number >= value) {
-                result += roman;
-                number -= value;
+        for (Convention convention : Convention.values()) {
+            while (number >= convention.value) {
+                result += convention.name();
+                number -= convention.value;
             }
         }
         return result;
+    }
+
+    private static enum Convention {
+        IV(4),
+        I(1);
+        private int value;
+
+        Convention(int value) {
+            this.value = value;
+        }
+
+
     }
 }
