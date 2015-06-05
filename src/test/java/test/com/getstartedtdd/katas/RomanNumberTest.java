@@ -1,5 +1,6 @@
 package test.com.getstartedtdd.katas;
 
+import com.getstartedtdd.katas.RomanNumber;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
