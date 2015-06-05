@@ -1,12 +1,7 @@
 package test.com.getstartedtdd.katas;
 
 import com.getstartedtdd.katas.RomanNumber;
-import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.experimental.theories.DataPoints;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -28,6 +23,18 @@ public class RomanNumberTest {
         assertThat(toRomanNumberString(3), is("III"));
         assertThat(toRomanNumberString(4), is("IV"));
         assertThat(toRomanNumberString(5), is("V"));
+        assertThat(toRomanNumberString(7), is("VII"));
+        assertThat(toRomanNumberString(9), is("IX"));
+        assertThat(toRomanNumberString(10), is("X"));
+        assertThat(toRomanNumberString(40), is("XL"));
+        assertThat(toRomanNumberString(50), is("L"));
+        assertThat(toRomanNumberString(90), is("XC"));
+        assertThat(toRomanNumberString(100), is("C"));
+        assertThat(toRomanNumberString(400), is("CD"));
+        assertThat(toRomanNumberString(500), is("D"));
+        assertThat(toRomanNumberString(900), is("CM"));
+        assertThat(toRomanNumberString(1000), is("M"));
+        assertThat(toRomanNumberString(2659), is("MMDCLIX"));
     }
 
     @Test
