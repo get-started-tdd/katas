@@ -1,6 +1,7 @@
 package test.com.getstartedtdd.katas;
 
 import com.getstartedtdd.katas.RomanNumber;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
@@ -22,6 +23,7 @@ public class RomanNumberTest {
     }
 
     @Test
+    @Ignore
     public void convert_2_to_II() throws Exception {
         assertThat(new RomanNumber(2).toString(), is("II"));
     }
