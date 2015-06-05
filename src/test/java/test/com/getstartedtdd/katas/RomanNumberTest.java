@@ -20,4 +20,9 @@ public class RomanNumberTest {
     public void convert_1_to_I() throws Exception {
         assertThat(new RomanNumber(1).toString(), is("I"));
     }
+
+    @Test
+    public void convert_2_to_II() throws Exception {
+        assertThat(new RomanNumber(2).toString(), is("II"));
+    }
 }
