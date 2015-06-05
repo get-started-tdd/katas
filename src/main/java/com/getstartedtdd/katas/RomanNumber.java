@@ -12,9 +12,10 @@ public class RomanNumber {
 
     @Override
     public String toString() {
-        if (number == 1) {
-            return "I";
+        String result = "";
+        if (number >= 1) {
+            result += "I";
         }
-        return "";
+        return result;
     }
 }
