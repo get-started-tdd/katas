@@ -23,7 +23,6 @@ public class RomanNumberTest {
     }
 
     @Test
-    @Ignore
     public void convert_2_to_II() throws Exception {
         assertThat(new RomanNumber(2).toString(), is("II"));
     }

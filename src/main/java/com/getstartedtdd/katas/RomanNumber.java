@@ -13,8 +13,9 @@ public class RomanNumber {
     @Override
     public String toString() {
         String result = "";
-        if (number >= 1) {
+        while (number >= 1) {
             result += "I";
+            number -= 1;
         }
         return result;
     }
