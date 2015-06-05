@@ -18,13 +18,13 @@ public class RomanNumberTest {
 
     @Test
     public void roman_number_does_not_have_0() throws Exception {
-        assertThat(new RomanNumber(0).toString(), is(""));
+        assertThat(toRomanNumberString(0), is(""));
     }
 
     @Test
     public void convert_arabic_number_to_roman_number() throws Exception {
-        assertThat(new RomanNumber(1).toString(), is("I"));
-        assertThat(new RomanNumber(2).toString(), is("II"));
+        assertThat(toRomanNumberString(1), is("I"));
+        assertThat(toRomanNumberString(2), is("II"));
     }
 
     @Test
@@ -32,5 +32,9 @@ public class RomanNumberTest {
         RomanNumber number = new RomanNumber(2);
         assertThat(number.toString(), is("II"));
         assertThat(number.toString(), is("II"));
+    }
+
+    private String toRomanNumberString(int number) {
+        return new RomanNumber(number).toString();
     }
 }
