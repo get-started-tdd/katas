@@ -12,6 +12,7 @@ public class RomanNumber {
 
     @Override
     public String toString() {
+        int number = this.number;
         String result = "";
         while (number >= 1) {
             result += "I";
