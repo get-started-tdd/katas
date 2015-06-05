@@ -3,6 +3,10 @@ package test.com.getstartedtdd.katas;
 import com.getstartedtdd.katas.RomanNumber;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.experimental.theories.DataPoints;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -18,12 +22,8 @@ public class RomanNumberTest {
     }
 
     @Test
-    public void convert_1_to_I() throws Exception {
+    public void convert_arabic_number_to_roman_number() throws Exception {
         assertThat(new RomanNumber(1).toString(), is("I"));
-    }
-
-    @Test
-    public void convert_2_to_II() throws Exception {
         assertThat(new RomanNumber(2).toString(), is("II"));
     }
 
