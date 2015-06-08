@@ -14,11 +14,9 @@ public class Time {
     public int seconds() {
         String[] parts = time.split(":");
         int seconds = 0;
-        int index = 0;
-        while (index < parts.length) {
+        for (int index=0;index < parts.length;index++) {
             seconds *= 60;
             seconds += Integer.parseInt(parts[index]);
-            index++;
         }
         return seconds;
     }
