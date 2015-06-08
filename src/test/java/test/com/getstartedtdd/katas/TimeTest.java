@@ -14,5 +14,6 @@ public class TimeTest {
     @Test
     public void containingSecondsOnly() throws Exception {
         assertThat(new Time("17").seconds(), equalTo(17));
+        assertThat(new Time("20").seconds(), equalTo(20));
     }
 }
