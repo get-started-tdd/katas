@@ -16,4 +16,9 @@ public class TimeTest {
         assertThat(new Time("17").seconds(), equalTo(17));
         assertThat(new Time("20").seconds(), equalTo(20));
     }
+
+    @Test
+    public void timeMissingHours() throws Exception {
+        assertThat(new Time("22:17").seconds(), equalTo(1337));
+    }
 }
