@@ -14,13 +14,11 @@ public class Time {
     public int seconds() {
         String[] parts = time.split(":");
         int seconds = 0;
-        if (parts.length >= 2) {
+        int index = 0;
+        while (index < parts.length) {
             seconds *= 60;
-            seconds += Integer.parseInt(parts[parts.length - 2]);
-        }
-        if (parts.length >= 1) {
-            seconds *= 60;
-            seconds += Integer.parseInt(parts[parts.length - 1]);
+            seconds += Integer.parseInt(parts[index]);
+            index++;
         }
         return seconds;
     }
