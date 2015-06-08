@@ -1,9 +1,9 @@
 package test.com.getstartedtdd.katas;
 
 import com.getstartedtdd.katas.Time;
-import org.junit.Ignore;
 import org.junit.Test;
 
+import static com.getstartedtdd.katas.Time.at;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 
@@ -14,13 +14,13 @@ public class TimeTest {
 
     @Test
     public void timeContainingSecondsOnly() throws Exception {
-        assertThat(new Time("17").seconds(), equalTo(17));
-        assertThat(new Time("20").seconds(), equalTo(20));
+        assertThat(at("17").seconds(), equalTo(17));
+        assertThat(at("20").seconds(), equalTo(20));
     }
 
     @Test
     public void timeMissingHours() throws Exception {
-        assertThat(new Time("00:17").seconds(), equalTo(17));
-        assertThat(new Time("22:17").seconds(), equalTo(22 * 60 + 17));
+        assertThat(at("00:17").seconds(), equalTo(17));
+        assertThat(at("22:17").seconds(), equalTo(22 * 60 + 17));
     }
 }

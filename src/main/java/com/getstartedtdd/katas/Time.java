@@ -11,6 +11,10 @@ public class Time {
         this.time = time;
     }
 
+    public static Time at(String time) {
+        return new Time(time);
+    }
+
     public int seconds() {
         int seconds = 0;
         for (String part : parts()) {
