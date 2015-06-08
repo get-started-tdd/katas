@@ -12,11 +12,14 @@ public class Time {
     }
 
     public int seconds() {
-        String[] parts = time.split(":");
         int seconds = 0;
-        for (String part : parts) {
+        for (String part : parts()) {
             seconds = seconds * 60 + Integer.parseInt(part);
         }
         return seconds;
+    }
+
+    private String[] parts() {
+        return time.split(":");
     }
 }
