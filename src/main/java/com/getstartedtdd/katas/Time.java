@@ -15,9 +15,11 @@ public class Time {
         String[] parts = time.split(":");
         int seconds = 0;
         if (parts.length >= 2) {
-            seconds += Integer.parseInt(parts[parts.length - 2]) * 60;
+            seconds *= 60;
+            seconds += Integer.parseInt(parts[parts.length - 2]);
         }
         if (parts.length >= 1) {
+            seconds *= 60;
             seconds += Integer.parseInt(parts[parts.length - 1]);
         }
         return seconds;
