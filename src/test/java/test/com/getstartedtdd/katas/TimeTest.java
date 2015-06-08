@@ -23,4 +23,9 @@ public class TimeTest {
         assertThat(at("00:17").seconds(), equalTo(17));
         assertThat(at("22:17").seconds(), equalTo(22 * 60 + 17));
     }
+
+    @Test
+    public void fullyTimeFormat_HH_mm_ss() throws Exception {
+        assertThat(at("13:22:17").seconds(), equalTo(13 * 60 * 60 + 22 * 60 + 17));
+    }
 }
