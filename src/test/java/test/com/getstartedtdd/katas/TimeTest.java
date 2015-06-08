@@ -19,7 +19,6 @@ public class TimeTest {
     }
 
     @Test
-    @Ignore
     public void timeMissingHours() throws Exception {
         assertThat(new Time("00:17").seconds(), equalTo(17));
         assertThat(new Time("22:17").seconds(), equalTo(22 * 60 + 17));
