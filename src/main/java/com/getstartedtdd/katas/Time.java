@@ -12,6 +12,10 @@ public class Time {
     }
 
     public int seconds() {
-        return Integer.parseInt(time);
+        String[] parts = time.split(":");
+        int index = 0;
+        int seconds = 0;
+        seconds += Integer.parseInt(parts[index]);
+        return seconds;
     }
 }
