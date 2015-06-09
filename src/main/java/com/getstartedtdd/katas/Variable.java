@@ -6,13 +6,28 @@ import java.util.Map;
  * Created by L.x on 15-6-10.
  */
 public class Variable {
+    public static final String EXPRESSION_START = "${";
+    public static final String EXPRESSION_END = "}";
     private String token;
 
     public Variable(String token) {
         this.token = token;
     }
 
+    public static String evalVariable(String expression, Map<String, Object> context) {
+        String name = nameOf(expression);
+        if (context.containsKey(name)) {
+            return String.valueOf(context.get(name));
+        } else {
+            return expression;
+        }
+    }
+
+    private static String nameOf(String expression) {
+        return expression.substring(EXPRESSION_START.length(), expression.length() - EXPRESSION_END.length());
+    }
+
     public String eval(Map<String, Object> context) {
-        return Template.evalVariable(token, context);
+        return evalVariable(token, context);
     }
 }
