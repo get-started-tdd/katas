@@ -21,12 +21,20 @@ public class Template {
         int pos = 0;
         while (matcher.find()) {
             String expression = matcher.group();
-            nodeTree.add(new Literal(template.substring(pos, matcher.start())));
-            nodeTree.add(new Variable(expression));
+            nodeTree.add(literal(template.substring(pos, matcher.start())));
+            nodeTree.add(variable(expression));
             pos = matcher.end();
         }
-        nodeTree.add(new Literal(template.substring(pos)));
+        nodeTree.add(literal(template.substring(pos)));
         return nodeTree;
+    }
+
+    private Variable variable(String expression) {
+        return new Variable(expression);
+    }
+
+    private Literal literal(String literal) {
+        return new Literal(literal);
     }
 
     public String eval(Map<String, Object> context) {
