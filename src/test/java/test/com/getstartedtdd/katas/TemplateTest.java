@@ -55,7 +55,6 @@ public class TemplateTest {
     }
 
     @Test
-    @Ignore
     public void stopProcessingExpressionIfAfterEvaluated() throws Exception {
         set("foo", "${bar}");
         set("bar", "bar");
