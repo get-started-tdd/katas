@@ -21,4 +21,10 @@ public class VariableTest {
         Map<String, Object> context = Collections.<String, Object>singletonMap("foo", "bar");
         assertThat(new Variable("${foo}").eval(context), equalTo("bar"));
     }
+
+    @Test
+    public void treatMissingVariableAsLiteral() throws Exception {
+        Map<String, Object> context = Collections.emptyMap();
+        assertThat(new Variable("${foo}").eval(context), equalTo("${foo}"));
+    }
 }
