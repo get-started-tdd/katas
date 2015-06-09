@@ -1,5 +1,6 @@
 package test.com.getstartedtdd.katas;
 
+import com.getstartedtdd.katas.Template;
 import org.junit.Test;
 
 import java.util.HashMap;
