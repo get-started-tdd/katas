@@ -31,14 +31,11 @@ public class Template {
         int pos = 0;
         while (matcher.find()) {
             String expression = matcher.group();
-            Literal literal = new Literal(template.substring(pos, matcher.start()));
-            Variable variable = new Variable(expression);
-            nodeTree.add(literal);
-            nodeTree.add(variable);
+            nodeTree.add(new Literal(template.substring(pos, matcher.start())));
+            nodeTree.add(new Variable(expression));
             pos = matcher.end();
         }
-        Literal literal = new Literal(template.substring(pos));
-        nodeTree.add(literal);
+        nodeTree.add(new Literal(template.substring(pos)));
         return nodeTree;
     }
 
