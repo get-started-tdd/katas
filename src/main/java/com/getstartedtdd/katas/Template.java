@@ -20,9 +20,9 @@ public class Template {
         if (matcher.find()) {
             String name = matcher.group(1);
             if (context.containsKey(name)) {
-                return template.substring(0, matcher.start()) + String.valueOf(context.get(name));
+                return template.substring(0, matcher.start()) + String.valueOf(context.get(name)) + template.substring(matcher.end());
             } else {
-                return template.substring(0, matcher.start()) + matcher.group();
+                return template.substring(0, matcher.start()) + matcher.group() + template.substring(matcher.end());
             }
         }
         return template;
