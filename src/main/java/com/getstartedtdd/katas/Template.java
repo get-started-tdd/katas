@@ -25,11 +25,13 @@ public class Template {
         int pos = 0;
         while (matcher.find()) {
             String expression = matcher.group();
-            result.append(template.substring(pos, matcher.start()))
+            Literal literal = new Literal(template.substring(pos, matcher.start()));
+            result.append(literal.eval(context))
                     .append(evalVariable(expression, context));
             pos = matcher.end();
         }
-        result.append(template.substring(pos));
+        Literal literal = new Literal(template.substring(pos));
+        result.append(literal.eval(context));
         return result.toString();
     }
 
