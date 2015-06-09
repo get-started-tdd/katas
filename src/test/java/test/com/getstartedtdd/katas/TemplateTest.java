@@ -28,7 +28,6 @@ public class TemplateTest {
     }
 
     @Test
-    @Ignore
     public void expression2() throws Exception {
         Map<String, Object> context = new HashMap<String, Object>();
         context.put("key", "value");

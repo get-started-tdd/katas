@@ -13,6 +13,9 @@ public class Template {
     }
 
     public String eval(Map<String, Object> context) {
-        return template.replace("${foo}", String.valueOf(context.get("foo")));
+        for (String name : context.keySet()) {
+            template = template.replace("${" + name + "}", String.valueOf(context.get(name)));
+        }
+        return template;
     }
 }
