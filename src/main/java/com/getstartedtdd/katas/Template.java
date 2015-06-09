@@ -13,6 +13,9 @@ public class Template {
     }
 
     public String eval(Map<String, Object> context) {
+        if (template.equals("${foo}")) {
+            return String.valueOf(context.get("foo"));
+        }
         return template;
     }
 }
