@@ -25,46 +25,32 @@ public class TemplateTest {
     }
 
     @Test
-    public void plainText() throws Exception {
+    public void literal() throws Exception {
         assertEvalTemplate("text", equalTo("text"));
     }
 
     @Test
-    public void expression() throws Exception {
+    public void variable() throws Exception {
         set("foo", "bar");
         assertEvalTemplate("${foo}", equalTo("bar"));
     }
 
     @Test
-    public void expression2() throws Exception {
-        set("key", "value");
-        assertEvalTemplate("${key}", equalTo("value"));
-    }
-
-    @Test
-    public void mixins() throws Exception {
+    public void endsWithVariable() throws Exception {
         set("foo", "bar");
         assertEvalTemplate("foo:${foo}", equalTo("foo:bar"));
+        assertEvalTemplate("key:${value}", equalTo("key:${value}"));
     }
 
     @Test
-    public void mixinsWithMissingVariable() throws Exception {
-        assertEvalTemplate("foo:${bar}", equalTo("foo:${bar}"));
-    }
-
-    @Test
-    public void mixins2() throws Exception {
+    public void startsWithVariable() throws Exception {
         set("foo", "foo");
         assertEvalTemplate("${foo}:bar", equalTo("foo:bar"));
+        assertEvalTemplate("${key}:value", equalTo("${key}:value"));
     }
 
     @Test
-    public void mixinsWithMissingVariable2() throws Exception {
-        assertEvalTemplate("${foo}:bar", equalTo("${foo}:bar"));
-    }
-
-    @Test
-    public void printExpressionAsLiteralIfVariableMissing() throws Exception {
+    public void treatMissingVariableAsLiteral() throws Exception {
         assertEvalTemplate("${missing}", equalTo("${missing}"));
     }
 
