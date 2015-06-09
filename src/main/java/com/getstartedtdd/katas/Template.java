@@ -16,6 +16,16 @@ public class Template {
     }
 
     public String eval(Map<String, Object> context) {
+        List<Node> nodeTree = compile();
+
+        StringBuilder result = new StringBuilder();
+        for (Node node : nodeTree) {
+            result.append(node.eval(context));
+        }
+        return result.toString();
+    }
+
+    private List<Node> compile() {
         Matcher matcher = Variable.VARIABLE_PATTERN.matcher(template);
         List<Node> nodeTree = new ArrayList<Node>();
         int pos = 0;
@@ -29,12 +39,7 @@ public class Template {
         }
         Literal literal = new Literal(template.substring(pos));
         nodeTree.add(literal);
-
-        StringBuilder result = new StringBuilder();
-        for (Node node : nodeTree) {
-            result.append(node.eval(context));
-        }
-        return result.toString();
+        return nodeTree;
     }
 
 }
