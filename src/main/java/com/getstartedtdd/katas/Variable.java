@@ -8,7 +8,7 @@ import static java.util.regex.Pattern.quote;
 /**
  * Created by L.x on 15-6-10.
  */
-public class Variable {
+public class Variable implements Node {
     public static final String EXPRESSION_START = "${";
     public static final String EXPRESSION_END = "}";
     public static final Pattern VARIABLE_PATTERN = Pattern.compile(quote(EXPRESSION_START) + ".*?" + quote(EXPRESSION_END));
@@ -24,6 +24,7 @@ public class Variable {
         return expression.substring(EXPRESSION_START.length(), expression.length() - EXPRESSION_END.length());
     }
 
+    @Override
     public String eval(Map<String, Object> context) {
         if (context.containsKey(name)) {
             return String.valueOf(context.get(name));

@@ -5,7 +5,7 @@ import java.util.Map;
 /**
  * Created by L.x on 15-6-10.
  */
-public class Literal {
+public class Literal implements Node{
     private String text;
 
     public Literal(String text) {
