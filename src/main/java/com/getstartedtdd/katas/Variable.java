@@ -9,9 +9,11 @@ public class Variable {
     public static final String EXPRESSION_START = "${";
     public static final String EXPRESSION_END = "}";
     private String token;
+    private String name;
 
     public Variable(String token) {
         this.token = token;
+        name = nameOf(token);
     }
 
     private static String nameOf(String expression) {
@@ -19,7 +21,6 @@ public class Variable {
     }
 
     public String eval(Map<String, Object> context) {
-        String name = nameOf(token);
         if (context.containsKey(name)) {
             return String.valueOf(context.get(name));
         } else {
