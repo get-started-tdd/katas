@@ -48,6 +48,11 @@ public class TemplateTest {
     }
 
     @Test
+    public void mixinsWithMissingVariable() throws Exception {
+        assertEvalTemplate("foo:${bar}", equalTo("foo:${bar}"));
+    }
+
+    @Test
     public void printExpressionAsLiteralIfVariableMissing() throws Exception {
         assertEvalTemplate("${missing}", equalTo("${missing}"));
     }
