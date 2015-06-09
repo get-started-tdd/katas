@@ -25,4 +25,11 @@ public class TemplateTest {
         context.put("foo", "bar");
         assertThat(new Template("${foo}").eval(context), equalTo("bar"));
     }
+
+    @Test
+    public void expression2() throws Exception {
+        Map<String, Object> context = new HashMap<String, Object>();
+        context.put("key", "value");
+        assertThat(new Template("${key}").eval(context), equalTo("value"));
+    }
 }
