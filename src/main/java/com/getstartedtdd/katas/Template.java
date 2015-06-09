@@ -22,7 +22,7 @@ public class Template {
             if (context.containsKey(name)) {
                 return template.substring(0, matcher.start()) + String.valueOf(context.get(name));
             } else {
-                return matcher.group();
+                return template.substring(0, matcher.start()) + matcher.group();
             }
         }
         return template;
