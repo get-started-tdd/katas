@@ -35,7 +35,7 @@ public class Template {
         return result.toString();
     }
 
-    private String evalVariable(String expression, Map<String, Object> context) {
+    public static String evalVariable(String expression, Map<String, Object> context) {
         String name = nameOf(expression);
         if (context.containsKey(name)) {
             return String.valueOf(context.get(name));

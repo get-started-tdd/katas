@@ -13,6 +13,6 @@ public class Variable {
     }
 
     public String eval(Map<String, Object> context) {
-        return String.valueOf(context.get(Template.nameOf(token)));
+        return Template.evalVariable(token, context);
     }
 }
