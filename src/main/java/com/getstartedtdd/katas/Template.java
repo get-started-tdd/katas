@@ -19,13 +19,13 @@ public class Template {
     }
 
     public String eval(Map<String, Object> context) {
-        Pattern pattern = Pattern.compile(quote(EXPRESSION_START) + ".*" + quote(EXPRESSION_END));
+        Pattern pattern = Pattern.compile(quote(EXPRESSION_START) + ".*?" + quote(EXPRESSION_END));
         Matcher matcher = pattern.matcher(template);
         StringBuilder result = new StringBuilder();
         int pos = 0;
-        if (matcher.find()) {
+        while (matcher.find()) {
             String expression = matcher.group();
-            result.append(template.substring(0, matcher.start()))
+            result.append(template.substring(pos, matcher.start()))
                     .append(evalVariable(expression, context));
             pos = matcher.end();
         }
