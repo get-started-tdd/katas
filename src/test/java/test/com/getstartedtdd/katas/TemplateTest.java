@@ -1,6 +1,8 @@
 package test.com.getstartedtdd.katas;
 
 import com.getstartedtdd.katas.Template;
+import org.hamcrest.Matcher;
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -14,23 +16,36 @@ import static org.junit.Assert.assertThat;
  * Created by L.x on 15-6-10.
  */
 public class TemplateTest {
+
+    private Map<String, Object> context;
+
+    @Before
+    public void setUp() throws Exception {
+        context = new HashMap<String, Object>();
+    }
+
     @Test
     public void plainText() throws Exception {
-        Map<String, Object> context = new HashMap<String, Object>();
-        assertThat(new Template("text").eval(context), equalTo("text"));
+        assertEvalTemplate("text", equalTo("text"));
     }
 
     @Test
     public void expression() throws Exception {
-        Map<String, Object> context = new HashMap<String, Object>();
-        context.put("foo", "bar");
-        assertThat(new Template("${foo}").eval(context), equalTo("bar"));
+        set("foo", "bar");
+        assertEvalTemplate("${foo}", equalTo("bar"));
     }
 
     @Test
     public void expression2() throws Exception {
-        Map<String, Object> context = new HashMap<String, Object>();
-        context.put("key", "value");
-        assertThat(new Template("${key}").eval(context), equalTo("value"));
+        set("key", "value");
+        assertEvalTemplate("${key}", equalTo("value"));
+    }
+
+    private void assertEvalTemplate(String template, Matcher<String> matcher) {
+        assertThat(new Template(template).eval(context), matcher);
+    }
+
+    private void set(String name, Object value) {
+        context.put(name, value);
     }
 }
