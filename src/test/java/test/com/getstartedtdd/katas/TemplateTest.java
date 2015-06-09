@@ -3,6 +3,7 @@ package test.com.getstartedtdd.katas;
 import com.getstartedtdd.katas.Template;
 import org.hamcrest.Matcher;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.LinkedHashMap;
@@ -46,6 +47,7 @@ public class TemplateTest {
     }
 
     @Test
+    @Ignore
     public void stopProcessingExpressionIfAfterEvaluated() throws Exception {
         set("foo", "${bar}");
         set("bar", "bar");
