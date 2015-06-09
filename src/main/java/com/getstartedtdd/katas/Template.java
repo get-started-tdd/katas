@@ -16,7 +16,7 @@ public class Template {
     }
 
     public String eval(Map<String, Object> context) {
-        List<Node> nodeTree = compile();
+        List<Node> nodeTree = compile(template);
 
         StringBuilder result = new StringBuilder();
         for (Node node : nodeTree) {
@@ -25,7 +25,7 @@ public class Template {
         return result.toString();
     }
 
-    private List<Node> compile() {
+    private List<Node> compile(String template) {
         Matcher matcher = Variable.VARIABLE_PATTERN.matcher(template);
         List<Node> nodeTree = new ArrayList<Node>();
         int pos = 0;
