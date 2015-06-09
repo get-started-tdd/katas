@@ -14,20 +14,16 @@ public class Variable {
         this.token = token;
     }
 
-    public static String evalVariable(String expression, Map<String, Object> context) {
-        String name = nameOf(expression);
-        if (context.containsKey(name)) {
-            return String.valueOf(context.get(name));
-        } else {
-            return expression;
-        }
-    }
-
     private static String nameOf(String expression) {
         return expression.substring(EXPRESSION_START.length(), expression.length() - EXPRESSION_END.length());
     }
 
     public String eval(Map<String, Object> context) {
-        return evalVariable(token, context);
+        String name = nameOf(token);
+        if (context.containsKey(name)) {
+            return String.valueOf(context.get(name));
+        } else {
+            return token;
+        }
     }
 }
