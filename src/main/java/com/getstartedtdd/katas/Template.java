@@ -20,7 +20,7 @@ public class Template {
         if (matcher.find()) {
             String name = matcher.group(1);
             if (context.containsKey(name)) {
-                return String.valueOf(context.get(name));
+                return template.substring(0, matcher.start()) + String.valueOf(context.get(name));
             } else {
                 return matcher.group();
             }
