@@ -10,6 +10,6 @@ public class Template {
     }
 
     public String eval(Map<String, Object> context) {
-        return null;
+        return "text";
     }
 }
