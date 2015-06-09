@@ -17,14 +17,20 @@ public class Template {
     public String eval(Map<String, Object> context) {
         Pattern pattern = Pattern.compile("\\$\\{(.*)\\}");
         Matcher matcher = pattern.matcher(template);
+        StringBuilder result = new StringBuilder();
         if (matcher.find()) {
             String name = matcher.group(1);
+            String left = template.substring(0, matcher.start());
+            String right = template.substring(matcher.end());
+            result.append(left);
             if (context.containsKey(name)) {
-                return template.substring(0, matcher.start()) + String.valueOf(context.get(name)) + template.substring(matcher.end());
+                result.append(String.valueOf(context.get(name))).append(right);
             } else {
-                return template.substring(0, matcher.start()) + matcher.group() + template.substring(matcher.end());
+                result.append(matcher.group()).append(right);
             }
+        } else {
+            result.append(template);
         }
-        return template;
+        return result.toString();
     }
 }
