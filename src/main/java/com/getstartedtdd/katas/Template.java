@@ -2,9 +2,6 @@ package com.getstartedtdd.katas;
 
 import java.util.Map;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import static java.util.regex.Pattern.quote;
 
 /**
  * Created by L.x on 15-6-10.
@@ -17,8 +14,7 @@ public class Template {
     }
 
     public String eval(Map<String, Object> context) {
-        Pattern pattern = Pattern.compile(quote(Variable.EXPRESSION_START) + ".*?" + quote(Variable.EXPRESSION_END));
-        Matcher matcher = pattern.matcher(template);
+        Matcher matcher = Variable.VARIABLE_PATTERN.matcher(template);
         StringBuilder result = new StringBuilder();
         int pos = 0;
         while (matcher.find()) {

@@ -1,6 +1,9 @@
 package com.getstartedtdd.katas;
 
 import java.util.Map;
+import java.util.regex.Pattern;
+
+import static java.util.regex.Pattern.quote;
 
 /**
  * Created by L.x on 15-6-10.
@@ -8,6 +11,7 @@ import java.util.Map;
 public class Variable {
     public static final String EXPRESSION_START = "${";
     public static final String EXPRESSION_END = "}";
+    public static final Pattern VARIABLE_PATTERN = Pattern.compile(quote(EXPRESSION_START) + ".*?" + quote(EXPRESSION_END));
     private String token;
     private String name;
 
