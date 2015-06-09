@@ -1,6 +1,8 @@
 package com.getstartedtdd.katas;
 
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by L.x on 15-6-10.
@@ -13,8 +15,15 @@ public class Template {
     }
 
     public String eval(Map<String, Object> context) {
-        for (String name : context.keySet()) {
-            template = template.replace("${" + name + "}", String.valueOf(context.get(name)));
+        Pattern pattern = Pattern.compile("\\$\\{(.*)\\}");
+        Matcher matcher = pattern.matcher(template);
+        if (matcher.find()) {
+            String name = matcher.group(1);
+            if (context.containsKey(name)) {
+                return String.valueOf(context.get(name));
+            } else {
+                return matcher.group();
+            }
         }
         return template;
     }
