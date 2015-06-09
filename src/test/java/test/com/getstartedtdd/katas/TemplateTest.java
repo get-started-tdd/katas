@@ -41,6 +41,11 @@ public class TemplateTest {
         assertEvalTemplate("${key}", equalTo("value"));
     }
 
+    @Test
+    public void printExpressionAsLiteralIfVariableMissing() throws Exception {
+        assertEvalTemplate("${missing}", equalTo("${missing}"));
+    }
+
     private void assertEvalTemplate(String template, Matcher<String> matcher) {
         assertThat(new Template(template).eval(context), matcher);
     }
