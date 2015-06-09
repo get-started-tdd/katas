@@ -15,7 +15,14 @@ import static org.junit.Assert.assertThat;
 public class TemplateTest {
     @Test
     public void plainText() throws Exception {
-        Map<String, Object> context=new HashMap<String, Object>();
+        Map<String, Object> context = new HashMap<String, Object>();
         assertThat(new Template("text").eval(context), equalTo("text"));
+    }
+
+    @Test
+    public void expression() throws Exception {
+        Map<String, Object> context = new HashMap<String, Object>();
+        context.put("foo", "bar");
+        assertThat(new Template("${foo}").eval(context), equalTo("bar"));
     }
 }
