@@ -3,10 +3,9 @@ package test.com.getstartedtdd.katas;
 import com.getstartedtdd.katas.Template;
 import org.hamcrest.Matcher;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static org.hamcrest.Matchers.equalTo;
@@ -21,7 +20,7 @@ public class TemplateTest {
 
     @Before
     public void setUp() throws Exception {
-        context = new HashMap<String, Object>();
+        context = new LinkedHashMap<String, Object>();
     }
 
     @Test
@@ -44,6 +43,13 @@ public class TemplateTest {
     @Test
     public void printExpressionAsLiteralIfVariableMissing() throws Exception {
         assertEvalTemplate("${missing}", equalTo("${missing}"));
+    }
+
+    @Test
+    public void stopProcessingExpressionIfAfterEvaluated() throws Exception {
+        set("foo", "${bar}");
+        set("bar", "bar");
+        assertEvalTemplate("${foo} is ${bar}", equalTo("${bar} is bar"));
     }
 
     private void assertEvalTemplate(String template, Matcher<String> matcher) {
