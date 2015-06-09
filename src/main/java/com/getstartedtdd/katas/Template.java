@@ -9,20 +9,10 @@ import java.util.regex.Matcher;
  * Created by L.x on 15-6-10.
  */
 public class Template {
-    private String template;
+    private List<Node> nodeTree;
 
     public Template(String template) {
-        this.template = template;
-    }
-
-    public String eval(Map<String, Object> context) {
-        List<Node> nodeTree = compile(template);
-
-        StringBuilder result = new StringBuilder();
-        for (Node node : nodeTree) {
-            result.append(node.eval(context));
-        }
-        return result.toString();
+        nodeTree = compile(template);
     }
 
     private List<Node> compile(String template) {
@@ -37,6 +27,14 @@ public class Template {
         }
         nodeTree.add(new Literal(template.substring(pos)));
         return nodeTree;
+    }
+
+    public String eval(Map<String, Object> context) {
+        StringBuilder result = new StringBuilder();
+        for (Node node : nodeTree) {
+            result.append(node.eval(context));
+        }
+        return result.toString();
     }
 
 }
