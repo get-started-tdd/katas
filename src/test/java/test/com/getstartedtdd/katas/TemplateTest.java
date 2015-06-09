@@ -1,6 +1,7 @@
 package test.com.getstartedtdd.katas;
 
 import com.getstartedtdd.katas.Template;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -27,6 +28,7 @@ public class TemplateTest {
     }
 
     @Test
+    @Ignore
     public void expression2() throws Exception {
         Map<String, Object> context = new HashMap<String, Object>();
         context.put("key", "value");
