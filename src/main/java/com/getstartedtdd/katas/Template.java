@@ -27,7 +27,7 @@ public class Template {
             String expression = matcher.group();
             Literal literal = new Literal(template.substring(pos, matcher.start()));
             result.append(literal.eval(context))
-                    .append(evalVariable(expression, context));
+                    .append(new Variable(expression).eval(context));
             pos = matcher.end();
         }
         Literal literal = new Literal(template.substring(pos));
