@@ -44,7 +44,7 @@ public class Template {
         }
     }
 
-    private String nameOf(String expression) {
+    public static String nameOf(String expression) {
         return expression.substring(EXPRESSION_START.length(), expression.length() - EXPRESSION_END.length());
     }
 }

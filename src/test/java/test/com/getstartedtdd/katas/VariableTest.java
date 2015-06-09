@@ -1,6 +1,7 @@
 package test.com.getstartedtdd.katas;
 
 import com.getstartedtdd.katas.Literal;
+import com.getstartedtdd.katas.Variable;
 import org.junit.Before;
 import org.junit.Test;
 
